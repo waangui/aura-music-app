@@ -6,7 +6,30 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
+    tailwindcss({
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              'custom-purple': '#BFACC8',
+              'custom-light': '#F5F2F6',
+            },
+          },
+        },
+      },
+    }),
 
   ],
+
+  server: {
+    
+    proxy: {
+      '/api': {
+        target: 'https://www.theaudiodb.com', 
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
+
 })
