@@ -5,19 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
-    tailwindcss({
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              'custom-purple': '#BFACC8',
-              'custom-light': '#F5F2F6',
-            },
-          },
-        },
-      },
-    }),
+    
+    tailwindcss(),
+    react()
 
   ],
 
